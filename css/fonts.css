@@ -1,0 +1,54 @@
+/*
+  Self-hosted variable fonts (downloaded from Google Fonts, OFL-licensed).
+  Typeface mapping — closest legally-available professional matches to the
+  reference photo, chosen by measuring cap-height/letterform proportions
+  directly off the source image:
+
+  1. "Bodoni Moda" (upright + italic, variable 400-900) — a high-contrast
+     Didone serif purpose-built to emulate Bodoni/Didot letterforms, the
+     same family fashion mastheads like the RONI/Grifel wordmark are set
+     in. Used for RONI, nav labels, body copy, captions, "Visual Content".
+     Its italic (large size, red) stands in for "Grifel" and "Designer" —
+     the reference's "Designer" lockup is an elaborate calligraphic swash
+     italic that has no free equivalent; Bodoni Moda Italic at large size/
+     heavy weight is the closest available match without a licensed
+     display face.
+
+  2. "Bebas Neue" — narrow, heavy-set display sans matching the tall
+     condensed caps used for "SELECTED WORK" and the lower-page statement.
+
+  3. "Inter" (variable 100-900) — small grotesk sans for metadata,
+     captions, numbering, and top labels.
+*/
+
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../assets/fonts/bodoni-moda-normal-var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../assets/fonts/bodoni-moda-italic-var.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/bebas-neue-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../assets/fonts/inter-var.woff2') format('woff2');
+}

@@ -1,0 +1,44 @@
+.statement-el {
+  left: 80px;
+  top: 831px;
+  width: 480px;
+  z-index: 2;
+}
+
+.img-portrait {
+  left: 95px;
+  top: 1037px;
+  z-index: 2;
+}
+.img-portrait img { width: 295px; height: 238px; object-fit: cover; display: block; }
+
+.img-workspace {
+  left: 399px;
+  top: 1037px;
+  z-index: 2;
+}
+.img-workspace img { width: 196px; height: 177px; object-fit: cover; display: block; }
+
+.body-copy-el {
+  left: 80px;
+  top: 1289px;
+  width: 335px;
+  z-index: 2;
+}
+
+.img-chair {
+  left: 660px;
+  top: 876px;
+  z-index: 2;
+}
+.img-chair img { width: 314px; height: 377px; object-fit: cover; display: block; }
+
+.signature-block {
+  right: 83px;
+  top: 1270px;
+  width: 360px;
+  z-index: 2;
+}
+
+.signature-visual { margin-top: 2px; }
+.signature-designer { margin-top: -16px; }

@@ -1,0 +1,175 @@
+/* ============ TYPE ROLES (sizes measured directly off the reference photo) ============ */
+
+.t-label-tiny {
+  font-family: var(--font-grotesk);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-red);
+  line-height: 14px;
+}
+
+.masthead {
+  font-family: var(--font-serif);
+  font-size: 89px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--c-ink);
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+}
+
+.masthead em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--c-red);
+}
+
+.discipline-line {
+  font-family: var(--font-grotesk);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--c-ink);
+  white-space: nowrap;
+}
+
+.see-more {
+  font-family: var(--font-grotesk);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.nav-item__label {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--c-ink);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.nav-item__num {
+  font-family: var(--font-grotesk);
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--c-grey-caption);
+  white-space: nowrap;
+}
+
+.heading-condensed {
+  font-family: var(--font-condensed);
+  font-weight: 400;
+  font-size: 55px;
+  line-height: 42px;
+  color: var(--c-ink);
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+}
+
+.caption-title {
+  font-family: var(--font-grotesk);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--c-ink);
+  white-space: nowrap;
+}
+
+.caption-meta {
+  font-family: var(--font-grotesk);
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--c-grey-caption);
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+
+.red-card__label {
+  font-family: var(--font-grotesk);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #f2d9d9;
+  white-space: nowrap;
+}
+
+.red-card__body {
+  font-family: var(--font-serif);
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #fdf3f3;
+}
+
+.statement {
+  font-family: var(--font-condensed);
+  font-weight: 400;
+  font-size: 51px;
+  line-height: 41px;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: var(--c-ink);
+}
+
+.statement em {
+  font-style: normal;
+  color: var(--c-red);
+}
+
+.body-copy {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  line-height: 24px;
+  color: var(--c-ink-soft);
+  font-weight: 400;
+}
+
+.body-copy .dropcap {
+  float: left;
+  font-size: 44px;
+  line-height: 38px;
+  padding-right: 8px;
+  font-style: italic;
+}
+
+.specialist-label {
+  font-family: var(--font-grotesk);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-ink);
+  text-align: right;
+}
+
+.signature-visual {
+  font-family: var(--font-serif);
+  font-size: 34px;
+  font-weight: 500;
+  color: var(--c-ink);
+  text-align: right;
+}
+
+.signature-designer {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--c-red);
+  font-size: 90px;
+  line-height: 1;
+  text-align: right;
+  white-space: nowrap;
+}
