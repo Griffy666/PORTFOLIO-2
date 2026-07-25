@@ -12,13 +12,13 @@
 /* ---- nav column ---- */
 .nav-column {
   left: 80px;
-  top: 251px;
+  top: 245px;
   width: 167px;
   z-index: 2;
 }
 
 .nav-list li {
-  padding: 15px 0 16px;
+  padding: 12px 0 13px;
   border-bottom: 1px solid var(--c-hairline);
   display: flex;
   align-items: baseline;
@@ -32,34 +32,34 @@
 }
 
 /* ---- campaign image block ---- */
-.campaign-block { left: 249px; top: 244px; z-index: 2; }
+.campaign-block { left: 249px; top: 238px; z-index: 2; }
 .campaign-block__img { width: 205px; height: 273px; object-fit: cover; display: block; }
-.campaign-block__caption { margin-top: 11px; width: 260px; }
+.campaign-block__caption { margin-top: 11px; width: 205px; }
 .campaign-block__caption .caption-title { margin-bottom: 5px; }
 
 /* ---- selected work + beauty + card ---- */
-.heading-selected { left: 464px; top: 218px; z-index: 2; }
+.heading-selected { left: 464px; top: 226px; z-index: 2; }
 
-.beauty-wrap { left: 464px; top: 346px; z-index: 2; }
+.beauty-wrap { left: 464px; top: 340px; z-index: 2; }
 .beauty-wrap__img { width: 259px; height: 314px; object-fit: cover; display: block; }
 
 .red-card {
-  left: 560px;
-  top: 532px;
-  width: 161px;
-  height: 126px;
+  left: 575px;
+  top: 542px;
+  width: 148px;
+  height: 112px;
   background: var(--c-red);
-  padding: 13px 15px;
+  padding: 11px 13px;
   z-index: 3;
 }
 
-.red-card__label { display: block; margin-bottom: 9px; }
+.red-card__label { display: block; margin-bottom: 7px; }
 
 /* ---- right column ---- */
-.right-block--product { left: 790px; top: 244px; z-index: 2; }
+.right-block--product { left: 790px; top: 238px; z-index: 2; }
 .right-block--product .right-block__img { width: 196px; height: 189px; object-fit: cover; display: block; }
 
-.right-block--editorial { left: 791px; top: 474px; z-index: 2; }
+.right-block--editorial { left: 791px; top: 468px; z-index: 2; }
 .right-block--editorial .right-block__img { width: 195px; height: 152px; object-fit: cover; display: block; }
 
 .right-block__caption { margin-top: 9px; }
