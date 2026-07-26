@@ -14,11 +14,16 @@
 <link rel="stylesheet" href="css/binder.css">
 <link rel="stylesheet" href="css/upper-page.css">
 <link rel="stylesheet" href="css/lower-page.css">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/flip.css">
 </head>
 <body>
 
 <div class="stage">
   <div class="canvas">
+
+  <div class="flip-page" id="flip-page">
+  <div class="flip-page__face flip-page__face--front">
 
     <!-- ============ PAPER BASE ============ -->
     <div class="paper paper--upper"></div>
@@ -110,6 +115,10 @@
       <p class="signature-designer">Designer</p>
     </a>
 
+  </div>
+  <div class="flip-page__face flip-page__face--back"></div>
+  </div>
+
     <!-- ============ BINDER HARDWARE (extracted from reference photo) ============ -->
     <img class="hardware" src="assets/binder/hardware.png" alt="">
 
@@ -117,5 +126,6 @@
 </div>
 
 <script src="js/scale.js"></script>
+<script src="js/flip.js" defer></script>
 </body>
 </html>

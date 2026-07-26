@@ -10,7 +10,12 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/variables.css">
 <link rel="stylesheet" href="css/typography.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/binder.css">
+<link rel="stylesheet" href="css/upper-page.css">
+<link rel="stylesheet" href="css/lower-page.css">
 <link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/flip.css">
 <style>
   .about-signature { text-align: right; padding: 0 0 100px; }
   .about-signature .signature-designer { margin-top: -14px; }
@@ -20,7 +25,14 @@
   }
 </style>
 </head>
-<body class="site">
+<body>
+
+<div class="stage">
+  <div class="canvas">
+
+  <div class="flip-page" id="flip-page">
+  <div class="flip-page__face flip-page__face--front">
+  <div class="paper paper--pane">
 
 <header class="site-header">
   <div class="wrap site-header__inner">
@@ -70,5 +82,17 @@
   </div>
 </footer>
 
+  </div>
+  </div>
+  <div class="flip-page__face flip-page__face--back"></div>
+  </div>
+
+    <img class="hardware" src="assets/binder/hardware.png" alt="">
+
+  </div>
+</div>
+
+<script src="js/scale.js"></script>
+<script src="js/flip.js" defer></script>
 </body>
 </html>
