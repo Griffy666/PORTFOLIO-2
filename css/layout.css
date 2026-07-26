@@ -1,18 +1,25 @@
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
 body {
   background: #000;
-  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
 }
 
-/* Outer stage: never reflows. Scaled as a whole via JS transform when the
-   viewport is smaller than the canvas. */
+/* Outer stage: never reflows. Scaled as a whole via JS transform so the
+   binder reads as a large, life-size object filling most of the viewport
+   height, regardless of window size. */
 .stage {
   width: var(--canvas-w);
   height: var(--canvas-h);
   flex: 0 0 auto;
-  transform-origin: top center;
+  transform-origin: center center;
 }
 
 .canvas {
