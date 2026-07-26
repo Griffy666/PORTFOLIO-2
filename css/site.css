@@ -1,9 +1,7 @@
 /* ============================================================
-   Shared site chrome for all non-homepage pages (Campaigns, Fashion,
-   Products, Concepts, About, Contact, Work overview).
-   The homepage (index.html) is a locked, fixed-canvas reproduction and
-   does not use this stylesheet's layout rules — only the color/type
-   tokens from variables.css/fonts.css/typography.css are shared.
+   Shared site chrome (header/nav/footer) used across every page,
+   including the homepage — the whole site is one responsive,
+   full-bleed, normally-scrolling document.
    ============================================================ */
 
 html {

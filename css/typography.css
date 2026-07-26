@@ -1,4 +1,7 @@
-/* ============ TYPE ROLES (sizes measured directly off the reference photo) ============ */
+/* ============ TYPE ROLES ============
+   Sizes originally measured off the reference photo, now expressed as
+   fluid clamp() ranges so the homepage's display type scales smoothly
+   across viewport sizes instead of relying on a fixed-pixel canvas. */
 
 .t-label-tiny {
   font-family: var(--font-grotesk);
@@ -12,12 +15,11 @@
 
 .masthead {
   font-family: var(--font-serif);
-  font-size: 89px;
+  font-size: clamp(40px, 9vw, 89px);
   font-weight: 500;
   line-height: 1;
   color: var(--c-ink);
   letter-spacing: -0.005em;
-  white-space: nowrap;
 }
 
 .masthead em {
@@ -30,10 +32,9 @@
   font-family: var(--font-grotesk);
   font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--c-ink);
-  white-space: nowrap;
 }
 
 .see-more {
@@ -46,7 +47,6 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  white-space: nowrap;
 }
 
 .nav-item__label {
@@ -55,7 +55,6 @@
   font-weight: 500;
   color: var(--c-ink);
   line-height: 1;
-  white-space: nowrap;
 }
 
 .nav-item__num {
@@ -69,8 +68,8 @@
 .heading-condensed {
   font-family: var(--font-condensed);
   font-weight: 400;
-  font-size: 55px;
-  line-height: 42px;
+  font-size: clamp(34px, 5.5vw, 55px);
+  line-height: 0.94;
   color: var(--c-ink);
   letter-spacing: -0.005em;
   text-transform: uppercase;
@@ -83,7 +82,6 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--c-ink);
-  white-space: nowrap;
 }
 
 .caption-meta {
@@ -93,7 +91,7 @@
   color: var(--c-grey-caption);
   display: flex;
   justify-content: space-between;
-  white-space: nowrap;
+  gap: 8px;
 }
 
 .red-card__label {
@@ -103,7 +101,6 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #f2d9d9;
-  white-space: nowrap;
 }
 
 .red-card__body {
@@ -117,8 +114,8 @@
 .statement {
   font-family: var(--font-condensed);
   font-weight: 400;
-  font-size: 46px;
-  line-height: 37px;
+  font-size: clamp(28px, 4.2vw, 46px);
+  line-height: 1.02;
   letter-spacing: -0.005em;
   text-transform: uppercase;
   color: var(--c-ink);
@@ -157,7 +154,7 @@
 
 .signature-visual {
   font-family: var(--font-serif);
-  font-size: 34px;
+  font-size: clamp(20px, 3vw, 34px);
   font-weight: 500;
   color: var(--c-ink);
   text-align: right;
@@ -168,8 +165,7 @@
   font-style: italic;
   font-weight: 700;
   color: var(--c-red);
-  font-size: 90px;
+  font-size: clamp(40px, 7vw, 90px);
   line-height: 1;
   text-align: right;
-  white-space: nowrap;
 }

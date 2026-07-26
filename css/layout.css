@@ -1,36 +1,53 @@
+/* ============================================================
+   Responsive full-screen base.
+
+   No fixed canvas, no scaling, no centered object: every page is a
+   normal document that fills the viewport edge to edge and scrolls
+   naturally. `.wrap` (in site.css) caps text measure for readability;
+   it never limits the page background, which always runs full-bleed.
+   ============================================================ */
+
 html {
-  overflow: hidden;
-  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: radial-gradient(ellipse at center, #1a100d 0%, #0a0504 65%, #030202 100%);
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--c-paper);
+  color: var(--c-ink);
 }
 
-/* Outer stage: never reflows. Scaled as a whole via JS transform so the
-   binder reads as a large, life-size object filling most of the viewport
-   height, regardless of window size. */
-.stage {
-  width: var(--canvas-w);
-  height: var(--canvas-h);
-  flex: 0 0 auto;
-  transform-origin: center center;
+/* ---- subtle cross-page motion instead of the old page-flip ----
+   Progressive enhancement: browsers that support the View Transitions
+   API for full navigations get an automatic soft cross-fade; every
+   other browser just gets the plain (still-smooth) page load below. */
+@view-transition {
+  navigation: auto;
 }
 
-.canvas {
-  position: relative;
-  width: var(--canvas-w);
-  height: var(--canvas-h);
-  overflow: hidden;
-  background: #0a0202;
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.45s;
+  animation-timing-function: ease;
 }
 
-/* absolutely-positioned content elements share this base */
-.el {
-  position: absolute;
+@keyframes page-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+body {
+  animation: page-fade-in 0.5s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  body { animation: none; }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
 }

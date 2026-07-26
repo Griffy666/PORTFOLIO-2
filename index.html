@@ -11,131 +11,142 @@
 <link rel="stylesheet" href="css/variables.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/typography.css">
-<link rel="stylesheet" href="css/binder.css">
-<link rel="stylesheet" href="css/upper-page.css">
-<link rel="stylesheet" href="css/lower-page.css">
 <link rel="stylesheet" href="css/site.css">
-<link rel="stylesheet" href="css/flip.css">
-<link rel="stylesheet" href="css/spread.css">
+<link rel="stylesheet" href="css/home.css">
 </head>
-<body>
+<body class="site">
 
-<div class="stage">
-  <div class="canvas">
-
-  <div class="flip-page" id="flip-page">
-  <div class="flip-page__face flip-page__face--front">
-
-    <!-- ============ PAGE A (left / upper) ============ -->
-    <div class="page-group page-group--a">
-    <div class="paper paper--upper"></div>
-
-    <p class="el label-portfolio t-label-tiny">PORTFOLIO<br>SINCE 2024</p>
-
-    <h1 class="el masthead-el masthead">RONI<em>/Grifel</em></h1>
-
-    <p class="el discipline-el discipline-line">AI&nbsp;&nbsp;/&nbsp;&nbsp;CREATIVE DIRECTION&nbsp;&nbsp;/&nbsp;&nbsp;VISUAL CONTENT&nbsp;&nbsp;/&nbsp;&nbsp;FASHION</p>
-
-    <a class="el see-more-el see-more" href="work.html">SEE MORE <span aria-hidden="true">&#8599;</span></a>
-
-    <nav class="el nav-column">
-      <ul class="nav-list">
-        <li><a href="campaigns.html"><span class="nav-item__label">AI Campaigns</span><span class="nav-item__num">01 — 06</span></a></li>
-        <li><a href="fashion.html"><span class="nav-item__label">Editorial</span><span class="nav-item__num">07 — 12</span></a></li>
-        <li><a href="concepts.html"><span class="nav-item__label">Digital Content</span><span class="nav-item__num">13 — 18</span></a></li>
-        <li><a href="campaigns.html"><span class="nav-item__label">Social Media</span><span class="nav-item__num">19 — 24</span></a></li>
-        <li><a href="products.html"><span class="nav-item__label">Retouching</span><span class="nav-item__num">25 — 28</span></a></li>
-        <li><a href="concepts.html"><span class="nav-item__label">Concepts</span><span class="nav-item__num">29 — 32</span></a></li>
-        <li><a href="about.html"><span class="nav-item__label">About</span><span class="nav-item__num">33 — 34</span></a></li>
-        <li><a href="contact.html"><span class="nav-item__label">Contact</span><span class="nav-item__num">35</span></a></li>
-      </ul>
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="site-logo" href="index.html">RONI<em>/Grifel</em></a>
+    <nav class="site-nav">
+      <a href="campaigns.html">Campaigns</a>
+      <a href="fashion.html">Fashion</a>
+      <a href="products.html">Products</a>
+      <a href="concepts.html">Concepts</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
+  </div>
+</header>
 
-    <a class="el campaign-block block-link" href="campaigns.html">
-      <figure>
-        <img class="campaign-block__img" src="assets/images/hero-campaign.jpg" alt="AI Campaign — Spring Summer 2024">
-        <figcaption class="campaign-block__caption">
-          <p class="caption-title">AI CAMPAIGN&nbsp;&nbsp;/&nbsp;&nbsp;SPRING SUMMER 2024</p>
-          <p class="caption-meta"><span>Brand: Diesel / Campaign</span><span>AI Visual</span></p>
-        </figcaption>
-      </figure>
-    </a>
+<main>
 
-    <h2 class="el heading-selected heading-condensed">SELECTED<br>WORK</h2>
-
-    <a class="el beauty-wrap block-link" href="concepts.html">
-      <img class="beauty-wrap__img" src="assets/images/main-beauty.jpg" alt="Digital visual study">
-    </a>
-
-    <div class="el red-card">
-      <span class="red-card__label">DIGITAL&nbsp;&nbsp;/&nbsp;&nbsp;VISUAL STUDY</span>
-      <p class="red-card__body">Exploring AI as a new creative medium for fashion storytelling.</p>
+  <section class="hero wrap">
+    <div class="hero__top">
+      <p class="t-label-tiny">PORTFOLIO<br>SINCE 2024</p>
+      <a class="see-more" href="work.html">SEE MORE <span aria-hidden="true">&#8599;</span></a>
     </div>
 
-    <a class="el right-block--product block-link" href="products.html">
-      <figure>
-        <img class="right-block__img" src="assets/images/product-visualization.jpg" alt="Product visualization">
-        <figcaption class="right-block__caption">
-          <p class="caption-title">PRODUCT VISUALIZATION</p>
-          <p class="caption-meta"><span>AI&nbsp;&nbsp;/&nbsp;&nbsp;Concept</span></p>
-        </figcaption>
-      </figure>
-    </a>
+    <h1 class="hero__masthead masthead">RONI<em>/Grifel</em></h1>
+    <p class="discipline-line">AI&nbsp;&nbsp;/&nbsp;&nbsp;CREATIVE DIRECTION&nbsp;&nbsp;/&nbsp;&nbsp;VISUAL CONTENT&nbsp;&nbsp;/&nbsp;&nbsp;FASHION</p>
 
-    <a class="el right-block--editorial block-link" href="fashion.html">
-      <figure>
-        <img class="right-block__img" src="assets/images/editorial-portrait.jpg" alt="Editorial content">
-        <figcaption class="right-block__caption">
-          <p class="caption-title">EDITORIAL CONTENT</p>
-          <p class="caption-meta"><span>AI&nbsp;&nbsp;/&nbsp;&nbsp;Art Direction</span></p>
-        </figcaption>
-      </figure>
-    </a>
+    <div class="hero__body">
+      <nav class="home-nav">
+        <ul class="home-nav__list">
+          <li><a href="campaigns.html"><span class="nav-item__label">AI Campaigns</span><span class="nav-item__num">01 — 06</span></a></li>
+          <li><a href="fashion.html"><span class="nav-item__label">Editorial</span><span class="nav-item__num">07 — 12</span></a></li>
+          <li><a href="concepts.html"><span class="nav-item__label">Digital Content</span><span class="nav-item__num">13 — 18</span></a></li>
+          <li><a href="campaigns.html"><span class="nav-item__label">Social Media</span><span class="nav-item__num">19 — 24</span></a></li>
+          <li><a href="products.html"><span class="nav-item__label">Retouching</span><span class="nav-item__num">25 — 28</span></a></li>
+          <li><a href="concepts.html"><span class="nav-item__label">Concepts</span><span class="nav-item__num">29 — 32</span></a></li>
+          <li><a href="about.html"><span class="nav-item__label">About</span><span class="nav-item__num">33 — 34</span></a></li>
+          <li><a href="contact.html"><span class="nav-item__label">Contact</span><span class="nav-item__num">35</span></a></li>
+        </ul>
+      </nav>
+
+      <a class="hero__campaign block-link" href="campaigns.html">
+        <figure>
+          <img src="assets/images/hero-campaign.jpg" alt="AI Campaign — Spring Summer 2024">
+          <figcaption>
+            <p class="caption-title">AI CAMPAIGN&nbsp;&nbsp;/&nbsp;&nbsp;SPRING SUMMER 2024</p>
+            <p class="caption-meta"><span>Brand: Diesel / Campaign</span><span>AI Visual</span></p>
+          </figcaption>
+        </figure>
+      </a>
     </div>
-    <!-- /page-group--a -->
+  </section>
 
-    <!-- ============ SPINE (visible only in open-spread mode) ============ -->
-    <div class="spine"><img src="assets/binder/spine.png" alt=""></div>
+  <div class="ring-motif" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
 
-    <!-- ============ PAGE B (right / lower) ============ -->
-    <div class="page-group page-group--b">
-    <div class="paper paper--lower"></div>
+  <section class="selected wrap">
+    <h2 class="heading-condensed">SELECTED<br>WORK</h2>
 
-    <p class="el statement-el statement">I CREATE<br>FASHION FOCUSED<br>VISUAL WORLDS<br><em>THROUGH AI, CREATIVE<br>DIRECTION AND STORYTELLING.</em></p>
+    <div class="selected__grid">
+      <a class="selected__beauty block-link" href="concepts.html">
+        <img src="assets/images/main-beauty.jpg" alt="Digital visual study">
+      </a>
 
-    <a class="el img-portrait block-link" href="campaigns.html">
-      <img src="assets/images/lower-portrait.jpg" alt="Vision">
-    </a>
+      <div class="red-card">
+        <span class="red-card__label">DIGITAL&nbsp;&nbsp;/&nbsp;&nbsp;VISUAL STUDY</span>
+        <p class="red-card__body">Exploring AI as a new creative medium for fashion storytelling.</p>
+      </div>
 
-    <a class="el img-workspace block-link" href="concepts.html">
-      <img src="assets/images/workspace.jpg" alt="Workspace">
-    </a>
+      <a class="selected__thumb block-link" href="products.html">
+        <figure>
+          <img src="assets/images/product-visualization.jpg" alt="Product visualization">
+          <figcaption>
+            <p class="caption-title">PRODUCT VISUALIZATION</p>
+            <p class="caption-meta"><span>AI&nbsp;&nbsp;/&nbsp;&nbsp;Concept</span></p>
+          </figcaption>
+        </figure>
+      </a>
 
-    <p class="el body-copy-el body-copy"><span class="dropcap">I</span>combine AI with creative direction, art direction and visual storytelling to craft premium visual content for fashion brands. From AI image generation and campaign concepts to social media and product visualization — I focus on creating content that feels premium, intentional and emotionally engaging.</p>
-
-    <a class="el img-chair block-link" href="concepts.html">
-      <img src="assets/images/chair.jpg" alt="Creative workstation">
-    </a>
-
-    <a class="el signature-block block-link" href="about.html">
-      <p class="specialist-label">CREATIVE AI SPECIALIST</p>
-      <p class="signature-visual">Visual Content</p>
-      <p class="signature-designer">Designer</p>
-    </a>
+      <a class="selected__thumb block-link" href="fashion.html">
+        <figure>
+          <img src="assets/images/editorial-portrait.jpg" alt="Editorial content">
+          <figcaption>
+            <p class="caption-title">EDITORIAL CONTENT</p>
+            <p class="caption-meta"><span>AI&nbsp;&nbsp;/&nbsp;&nbsp;Art Direction</span></p>
+          </figcaption>
+        </figure>
+      </a>
     </div>
-    <!-- /page-group--b -->
+  </section>
 
+  <div class="ring-motif" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+  <section class="statement-section wrap">
+    <p class="statement">I CREATE<br>FASHION FOCUSED<br>VISUAL WORLDS<br><em>THROUGH AI, CREATIVE<br>DIRECTION AND STORYTELLING.</em></p>
+
+    <div class="statement-grid">
+      <a class="block-link" href="campaigns.html">
+        <img src="assets/images/lower-portrait.jpg" alt="Vision">
+      </a>
+
+      <a class="block-link" href="concepts.html">
+        <img src="assets/images/workspace.jpg" alt="Workspace">
+      </a>
+
+      <p class="body-copy"><span class="dropcap">I</span>combine AI with creative direction, art direction and visual storytelling to craft premium visual content for fashion brands. From AI image generation and campaign concepts to social media and product visualization — I focus on creating content that feels premium, intentional and emotionally engaging.</p>
+
+      <a class="block-link" href="concepts.html">
+        <img src="assets/images/chair.jpg" alt="Creative workstation">
+      </a>
+
+      <a class="signature-block block-link" href="about.html">
+        <p class="specialist-label">CREATIVE AI SPECIALIST</p>
+        <p class="signature-visual">Visual Content</p>
+        <p class="signature-designer">Designer</p>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <p class="site-footer__copy">&copy; 2024 Roni Grifel — AI Creative Direction &amp; Visual Content</p>
+    <nav class="site-footer__nav">
+      <a href="campaigns.html">Campaigns</a>
+      <a href="fashion.html">Fashion</a>
+      <a href="products.html">Products</a>
+      <a href="concepts.html">Concepts</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
-  <div class="flip-page__face flip-page__face--back"></div>
-  </div>
+</footer>
 
-    <!-- ============ BINDER HARDWARE (extracted from reference photo) ============ -->
-    <img class="hardware" src="assets/binder/hardware.png" alt="">
-
-  </div>
-</div>
-
-<script src="js/scale.js"></script>
-<script src="js/flip.js" defer></script>
 </body>
 </html>

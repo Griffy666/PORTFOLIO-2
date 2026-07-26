@@ -1,0 +1,212 @@
+/* ============================================================
+   Homepage — responsive editorial layout (replaces the old fixed
+   1068x1472 canvas reproduction). Same content, colors, type and
+   imagery; laid out with fluid grid/flex instead of absolute pixel
+   coordinates, so it fills the viewport at any size.
+   ============================================================ */
+
+.hero {
+  padding: 48px 0 56px;
+}
+
+.hero__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.hero__masthead {
+  margin: 10px 0 14px;
+}
+
+.hero__body {
+  display: grid;
+  grid-template-columns: minmax(160px, 220px) 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.home-nav__list li {
+  padding: 12px 0 13px;
+  border-bottom: 1px solid var(--c-hairline);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.home-nav__list li:last-child {
+  border-bottom: none;
+}
+
+.home-nav__list a {
+  display: contents;
+}
+
+.block-link {
+  display: block;
+  color: inherit;
+}
+
+.hero__campaign img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+
+.hero__campaign figcaption {
+  margin-top: 12px;
+}
+
+.hero__campaign .caption-meta {
+  margin-top: 4px;
+}
+
+/* ---- selected work ---- */
+.selected {
+  padding: 40px 0 64px;
+}
+
+.selected__grid {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.selected__beauty img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+
+.red-card {
+  background: var(--c-red);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.selected__thumb img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.selected__thumb figcaption {
+  margin-top: 9px;
+}
+
+/* ---- statement / about teaser ---- */
+.statement-section {
+  padding: 40px 0 72px;
+}
+
+.statement {
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+
+.statement-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.statement-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+
+.statement-grid .body-copy {
+  grid-column: span 2;
+  align-self: center;
+}
+
+.signature-block {
+  grid-column: span 2;
+  text-align: right;
+  align-self: end;
+}
+
+.signature-designer {
+  margin-top: -6px;
+}
+
+/* ---- decorative ring motif: a small nod to the physical binder,
+   drawn in CSS so it stays crisp at any viewport size ---- */
+.ring-motif {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding: 6px 0;
+}
+
+.ring-motif span {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--c-ink-soft);
+  border-radius: 50%;
+  opacity: 0.35;
+}
+
+/* ============ responsive breakpoints ============ */
+
+@media (max-width: 900px) {
+  .hero__body {
+    grid-template-columns: 1fr;
+  }
+
+  .selected__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statement-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statement-grid .body-copy,
+  .signature-block {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding: 32px 0 40px;
+  }
+
+  .selected__grid,
+  .statement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .statement-grid .body-copy,
+  .signature-block {
+    grid-column: span 1;
+  }
+
+  .signature-block {
+    text-align: left;
+  }
+
+  .specialist-label,
+  .signature-visual {
+    text-align: left;
+  }
+
+  .ring-motif span {
+    width: 14px;
+    height: 14px;
+  }
+}

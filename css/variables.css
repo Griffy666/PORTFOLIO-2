@@ -1,10 +1,4 @@
 :root {
-  /* Fixed design canvas — matches the reference photo's native pixel
-     dimensions exactly (1068 x 1472), so every measured coordinate below
-     maps 1:1 with the source image. */
-  --canvas-w: 1068px;
-  --canvas-h: 1472px;
-
   /* Colors (sampled from the reference photo) */
   --c-paper: #e3ddd6;
   --c-ink: #17130f;
