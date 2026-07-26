@@ -1,0 +1,29 @@
+body {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Outer stage: never reflows. Scaled as a whole via JS transform when the
+   viewport is smaller than the canvas. */
+.stage {
+  width: var(--canvas-w);
+  height: var(--canvas-h);
+  flex: 0 0 auto;
+  transform-origin: top center;
+}
+
+.canvas {
+  position: relative;
+  width: var(--canvas-w);
+  height: var(--canvas-h);
+  overflow: hidden;
+  background: #0a0202;
+}
+
+/* absolutely-positioned content elements share this base */
+.el {
+  position: absolute;
+}

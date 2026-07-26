@@ -1,0 +1,346 @@
+/* ============================================================
+   Shared site chrome for all non-homepage pages (Campaigns, Fashion,
+   Products, Concepts, About, Contact, Work overview).
+   The homepage (index.html) is a locked, fixed-canvas reproduction and
+   does not use this stylesheet's layout rules — only the color/type
+   tokens from variables.css/fonts.css/typography.css are shared.
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.site {
+  background: var(--c-paper);
+  color: var(--c-ink);
+  min-height: 100vh;
+  display: block;
+}
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ---- header ---- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--c-paper);
+  border-bottom: 1px solid var(--c-hairline);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0;
+  gap: 24px;
+}
+
+.site-logo {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--c-ink);
+  white-space: nowrap;
+}
+
+.site-logo em {
+  font-style: italic;
+  color: var(--c-red);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  justify-content: flex-end;
+}
+
+.site-nav a {
+  font-family: var(--font-grotesk);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--c-ink);
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--c-red);
+  border-bottom-color: var(--c-red);
+}
+
+/* ---- section header ---- */
+.section-head {
+  padding: 64px 0 40px;
+}
+
+.section-head__eyebrow {
+  font-family: var(--font-grotesk);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-red);
+  margin-bottom: 14px;
+}
+
+.section-head__title {
+  font-family: var(--font-condensed);
+  font-weight: 400;
+  font-size: clamp(48px, 9vw, 96px);
+  line-height: 0.92;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: var(--c-ink);
+  margin-bottom: 22px;
+}
+
+.section-head__intro {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--c-ink-soft);
+  max-width: 620px;
+}
+
+/* ---- gallery grid ---- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 32px 28px;
+  padding-bottom: 100px;
+}
+
+.gallery__item img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery__caption {
+  margin-top: 12px;
+}
+
+.gallery__caption .caption-title {
+  margin-bottom: 4px;
+}
+
+/* ---- featured / campaign spread (2-up, larger) ---- */
+.spread {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 100px;
+}
+
+.spread__item img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+
+.spread__caption {
+  margin-top: 16px;
+}
+
+.spread__caption .caption-title {
+  margin-bottom: 4px;
+  font-size: 11px;
+}
+
+@media (max-width: 760px) {
+  .spread {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- generic content page (About) ---- */
+.prose {
+  max-width: 640px;
+  padding-bottom: 100px;
+}
+
+.prose p {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--c-ink-soft);
+  margin-bottom: 22px;
+}
+
+.prose p:first-of-type::first-letter {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 64px;
+  line-height: 40px;
+  float: left;
+  padding-right: 10px;
+  color: var(--c-ink);
+}
+
+/* ---- contact ---- */
+.contact-block {
+  padding-bottom: 100px;
+  max-width: 560px;
+}
+
+.contact-block p {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--c-ink-soft);
+  margin-bottom: 28px;
+}
+
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 28px;
+  color: var(--c-red);
+  border-bottom: 1px solid var(--c-red);
+  padding-bottom: 4px;
+  margin-bottom: 40px;
+}
+
+.contact-meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.contact-meta div {
+  font-family: var(--font-grotesk);
+  font-size: 12px;
+  color: var(--c-grey-caption);
+}
+
+.contact-meta strong {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-ink);
+  margin-bottom: 6px;
+}
+
+/* ---- work overview (SEE MORE landing) ---- */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  padding-bottom: 100px;
+}
+
+.overview-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #000;
+}
+
+.overview-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  opacity: 0.88;
+}
+
+.overview-card__label {
+  position: absolute;
+  left: 24px;
+  bottom: 20px;
+  font-family: var(--font-condensed);
+  font-size: clamp(28px, 4vw, 40px);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+}
+
+.overview-card__count {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  font-family: var(--font-grotesk);
+  font-size: 11px;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 700px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- footer ---- */
+.site-footer {
+  border-top: 1px solid var(--c-hairline);
+  padding: 32px 0;
+}
+
+.site-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.site-footer__copy {
+  font-family: var(--font-grotesk);
+  font-size: 10.5px;
+  color: var(--c-grey-caption);
+}
+
+.site-footer__nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.site-footer__nav a {
+  font-family: var(--font-grotesk);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-ink-soft);
+}
+
+.site-footer__nav a:hover {
+  color: var(--c-red);
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 22px;
+  }
+  .site-header__inner {
+    padding: 16px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .site-nav {
+    justify-content: flex-start;
+    gap: 14px 18px;
+  }
+  .section-head {
+    padding: 40px 0 28px;
+  }
+}

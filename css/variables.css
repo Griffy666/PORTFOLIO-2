@@ -1,0 +1,21 @@
+:root {
+  /* Fixed design canvas — matches the reference photo's native pixel
+     dimensions exactly (1068 x 1472), so every measured coordinate below
+     maps 1:1 with the source image. */
+  --canvas-w: 1068px;
+  --canvas-h: 1472px;
+
+  /* Colors (sampled from the reference photo) */
+  --c-paper: #e3ddd6;
+  --c-ink: #17130f;
+  --c-ink-soft: #2b2723;
+  --c-red: #8f2323;
+  --c-red-deep: #7a1414;
+  --c-grey-caption: #55514c;
+  --c-hairline: rgba(23, 19, 15, 0.16);
+
+  /* Type roles */
+  --font-serif: 'Bodoni Moda', 'Didot', Georgia, serif;
+  --font-condensed: 'Bebas Neue', 'Oswald', sans-serif;
+  --font-grotesk: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}

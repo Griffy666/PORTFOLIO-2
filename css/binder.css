@@ -1,0 +1,40 @@
+/* Paper base for each page, sized to the measured page rectangles.
+   Content elements are absolutely positioned on top of these. */
+.paper {
+  position: absolute;
+  left: 55px;
+  width: 931px;
+  background: var(--c-paper);
+}
+
+.paper--upper {
+  top: 51px;
+  height: 686px;
+  z-index: 1;
+}
+
+.paper--lower {
+  top: 787px;
+  height: 649px;
+  z-index: 1;
+}
+
+.paper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* The extracted binder hardware: background, acrylic frame/edges/reflections,
+   metal rail, rings and hole strips — a single photographic overlay with the
+   two content rectangles cut transparent so live HTML shows through there. */
+.hardware {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
