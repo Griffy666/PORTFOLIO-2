@@ -99,6 +99,13 @@
     setTimeout(finish, ms + 150);
   }
 
+  // The homepage spread's binding runs down a vertical spine, so pages
+  // turn around a vertical axis there; the stacked/mobile binder keeps
+  // the original horizontal ring-line hinge. See css/spread.css.
+  function hingeSuffix() {
+    return document.body.classList.contains('mode-spread') ? '-y' : '';
+  }
+
   function goTo(newIndex) {
     if (isAnimating || newIndex === currentIndex || newIndex < 0 || newIndex >= PAGES.length) return;
     var direction = newIndex > currentIndex ? 1 : -1;
@@ -109,17 +116,21 @@
       var outgoing = getFlipPage();
       if (!outgoing) throw new Error('no current flip-page');
 
+      var suffix = hingeSuffix();
+      var outClass = (direction > 0 ? 'flip-out-fwd' : 'flip-out-bwd') + suffix;
+      var inClass = (direction > 0 ? 'flip-in-fwd' : 'flip-in-bwd') + suffix;
+
       var shade = canvas.querySelector('.flip-shade');
       var incoming = buildLayer(innerHTML, 'flip-page--incoming');
       canvas.insertBefore(incoming, outgoing);
 
-      outgoing.classList.add(direction > 0 ? 'flip-out-fwd' : 'flip-out-bwd');
-      incoming.classList.add(direction > 0 ? 'flip-in-fwd' : 'flip-in-bwd');
+      outgoing.classList.add(outClass);
+      incoming.classList.add(inClass);
       if (shade) shade.classList.add(direction > 0 ? 'is-active-fwd' : 'is-active-bwd');
 
       withTimeoutFallback(outgoing, 'animationend', FLIP_DURATION, function () {
         outgoing.remove();
-        incoming.classList.remove('flip-page--incoming', 'flip-in-fwd', 'flip-in-bwd');
+        incoming.classList.remove('flip-page--incoming', inClass);
         incoming.id = 'flip-page';
         if (shade) shade.classList.remove('is-active-fwd', 'is-active-bwd');
 

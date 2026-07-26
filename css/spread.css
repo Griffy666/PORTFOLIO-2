@@ -1,0 +1,143 @@
+/* ============================================================
+   Open-spread desktop mode.
+
+   On wide viewports the binder becomes a genuine two-page spread —
+   the two existing pages (each kept at their own original internal
+   layout/coordinates, completely unchanged) sit side by side around a
+   vertical spine, instead of stacked top/bottom inside a tall portrait
+   object. js/scale.js toggles `mode-spread` on <body> based on viewport
+   shape; everything below is inert unless that class is present, so
+   narrow/portrait viewports keep the original stacked binder untouched.
+   ============================================================ */
+
+body.mode-spread {
+  --canvas-w: 2032px;
+  --canvas-h: 766px;
+}
+
+/* Each page keeps its own original 1068x1472 coordinate frame so every
+   left/top/right value in upper-page.css and lower-page.css keeps
+   working unmodified — the group as a whole is just translated into
+   its new home in the wider canvas. */
+.page-group {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1068px;
+  height: 1472px;
+  transform: none;
+}
+
+body.mode-spread .page-group--a { transform: translate(-15px, -11px); }
+body.mode-spread .page-group--b { transform: translate(1006px, -747px); }
+
+/* vertical spine graphic (real photographed ring/rail texture, rotated) */
+.spine {
+  display: none;
+}
+
+body.mode-spread .spine {
+  display: block;
+  position: absolute;
+  left: 971px;
+  top: 40px;
+  width: 90px;
+  height: 686px;
+  z-index: 11;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.55);
+}
+
+.spine img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* the photographic hardware overlay was extracted for the tall portrait
+   object and would badly distort if stretched to the wide spread canvas */
+body.mode-spread .hardware {
+  display: none;
+}
+
+body.mode-spread .paper {
+  border-radius: 3px;
+}
+
+/* subpages: single wide page filling the spread canvas (no spine — the
+   spine only appears on the two-page home spread) */
+body.mode-spread .paper--pane {
+  left: 40px;
+  width: 1952px;
+  top: 40px;
+  height: 686px;
+}
+
+/* ------------------------------------------------------------
+   Flip hinge: the spread's binding runs down the vertical spine at
+   the canvas's horizontal center, not across a horizontal ring-line,
+   so pages turn around a vertical axis here instead of flip.css's
+   default horizontal one. js/flip.js picks the "-y" class variants
+   below whenever body.mode-spread is active.
+   ------------------------------------------------------------ */
+
+body.mode-spread .canvas {
+  perspective-origin: 50% 50%;
+}
+
+body.mode-spread #flip-page,
+body.mode-spread .flip-page {
+  transform-origin: 50% 50%;
+}
+
+body.mode-spread .flip-page__face--front::before {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.5), transparent 55%);
+}
+
+body.mode-spread .flip-shade {
+  background: radial-gradient(ellipse 45% 70% at 50% 50%, rgba(0, 0, 0, 0.45), transparent 70%);
+}
+
+@keyframes flipOutFwdY {
+  0%   { transform: rotateY(0deg) scaleX(1); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+  45%  { transform: rotateY(-92deg) scaleX(0.978); box-shadow: 70px 0 100px rgba(0, 0, 0, 0.5); }
+  100% { transform: rotateY(-180deg) scaleX(1); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+}
+
+@keyframes flipInFwdY {
+  0%   { transform: rotateY(180deg) scaleX(1); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+  55%  { transform: rotateY(92deg) scaleX(0.978); box-shadow: 70px 0 100px rgba(0, 0, 0, 0.5); }
+  100% { transform: rotateY(0deg) scaleX(1); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+}
+
+@keyframes flipOutBwdY {
+  0%   { transform: rotateY(0deg) scaleX(1); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+  45%  { transform: rotateY(92deg) scaleX(0.978); box-shadow: -70px 0 100px rgba(0, 0, 0, 0.5); }
+  100% { transform: rotateY(180deg) scaleX(1); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+}
+
+@keyframes flipInBwdY {
+  0%   { transform: rotateY(-180deg) scaleX(1); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+  55%  { transform: rotateY(-92deg) scaleX(0.978); box-shadow: -70px 0 100px rgba(0, 0, 0, 0.5); }
+  100% { transform: rotateY(0deg) scaleX(1); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+}
+
+.flip-out-fwd-y { animation: flipOutFwdY var(--flip-duration, 0.85s) cubic-bezier(0.45, 0.05, 0.35, 1) forwards; z-index: 6; }
+.flip-in-fwd-y  { animation: flipInFwdY  var(--flip-duration, 0.85s) cubic-bezier(0.45, 0.05, 0.35, 1) forwards; z-index: 5; }
+.flip-out-bwd-y { animation: flipOutBwdY var(--flip-duration, 0.85s) cubic-bezier(0.45, 0.05, 0.35, 1) forwards; z-index: 6; }
+.flip-in-bwd-y  { animation: flipInBwdY  var(--flip-duration, 0.85s) cubic-bezier(0.45, 0.05, 0.35, 1) forwards; z-index: 5; }
+
+.flip-out-fwd-y .flip-page__face--front::before,
+.flip-out-bwd-y .flip-page__face--front::before,
+.flip-in-fwd-y .flip-page__face--front::before,
+.flip-in-bwd-y .flip-page__face--front::before {
+  animation: flipHighlight var(--flip-duration, 0.85s) cubic-bezier(0.45, 0.05, 0.35, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-out-fwd-y, .flip-in-fwd-y, .flip-out-bwd-y, .flip-in-bwd-y {
+    animation: none !important;
+  }
+}

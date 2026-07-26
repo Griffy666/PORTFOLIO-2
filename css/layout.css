@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  background: #000;
+  background: radial-gradient(ellipse at center, #1a100d 0%, #0a0504 65%, #030202 100%);
   height: 100%;
   overflow: hidden;
   display: flex;

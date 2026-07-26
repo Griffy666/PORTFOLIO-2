@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="css/lower-page.css">
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="css/flip.css">
+<link rel="stylesheet" href="css/spread.css">
 </head>
 <body>
 
@@ -25,11 +26,10 @@
   <div class="flip-page" id="flip-page">
   <div class="flip-page__face flip-page__face--front">
 
-    <!-- ============ PAPER BASE ============ -->
+    <!-- ============ PAGE A (left / upper) ============ -->
+    <div class="page-group page-group--a">
     <div class="paper paper--upper"></div>
-    <div class="paper paper--lower"></div>
 
-    <!-- ============ UPPER PAGE CONTENT ============ -->
     <p class="el label-portfolio t-label-tiny">PORTFOLIO<br>SINCE 2024</p>
 
     <h1 class="el masthead-el masthead">RONI<em>/Grifel</em></h1>
@@ -91,8 +91,16 @@
         </figcaption>
       </figure>
     </a>
+    </div>
+    <!-- /page-group--a -->
 
-    <!-- ============ LOWER PAGE CONTENT ============ -->
+    <!-- ============ SPINE (visible only in open-spread mode) ============ -->
+    <div class="spine"><img src="assets/binder/spine.png" alt=""></div>
+
+    <!-- ============ PAGE B (right / lower) ============ -->
+    <div class="page-group page-group--b">
+    <div class="paper paper--lower"></div>
+
     <p class="el statement-el statement">I CREATE<br>FASHION FOCUSED<br>VISUAL WORLDS<br><em>THROUGH AI, CREATIVE<br>DIRECTION AND STORYTELLING.</em></p>
 
     <a class="el img-portrait block-link" href="campaigns.html">
@@ -114,6 +122,8 @@
       <p class="signature-visual">Visual Content</p>
       <p class="signature-designer">Designer</p>
     </a>
+    </div>
+    <!-- /page-group--b -->
 
   </div>
   <div class="flip-page__face flip-page__face--back"></div>
