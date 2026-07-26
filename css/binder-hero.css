@@ -1,0 +1,182 @@
+/* ============================================================
+   Binder hero — the approved binder composition (reference photo),
+   rebuilt fluid instead of a fixed-pixel canvas.
+
+   .binder-stage keeps the reference photo's exact 1068:1472 aspect
+   ratio always, so every element's position/size below (expressed as
+   a percentage of that single 1068x1472 coordinate space — literally
+   the same numbers as the original design, just in % instead of px)
+   scales as one undistorted unit. That's what makes this different
+   from a naive flex-divided layout: because the stage's shape never
+   changes, text and images can never overlap or overflow each other
+   at any size, they just get uniformly larger or smaller together.
+
+   The stage is fit ("contain") inside the full 100vw x 100vh frame:
+   on most desktop screens (wider than the design's own 0.725 aspect)
+   that means it's height-bound, so a strip of the frame's background
+   remains visible on either side. There is no way to also fill 100%
+   of the width on a landscape screen without either cropping part of
+   the design off-screen or reshaping the composition itself — this
+   preserves the exact original, uncropped and undistorted, and
+   maximizes its size within that constraint.
+
+   Below 860px there isn't room for this at readable scale, so
+   .mobile-hero (a normal responsive flow, same content/images) takes
+   over instead — see the toggle at the bottom.
+   ============================================================ */
+
+.binder-hero {
+  display: none;
+}
+
+.binder-frame {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--c-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(6px, 1.2vh, 20px) clamp(6px, 1.2vw, 20px);
+  box-sizing: border-box;
+}
+
+.binder-stage {
+  position: relative;
+  aspect-ratio: 1068 / 1472;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  container-type: inline-size;
+  background: var(--c-ink);
+}
+
+.paper {
+  position: absolute;
+  background: var(--c-paper);
+}
+
+.paper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+.paper--upper { left: 5.15%; top: 3.465%; width: 87.172%; height: 46.603%; box-shadow: 0 0.6cqw 1.4cqw rgba(0,0,0,.22); }
+.paper--lower { left: 5.15%; top: 53.465%; width: 87.172%; height: 44.09%; box-shadow: 0 0.6cqw 1.4cqw rgba(0,0,0,.22); }
+
+.binder-rings {
+  position: absolute;
+  left: 3.745%;
+  top: 47.554%;
+  width: 89.888%;
+  z-index: 3;
+}
+
+.binder-rings img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* absolutely-positioned content, percentage coordinates relative to
+   the single 1068x1472 .binder-stage */
+.bh-el {
+  position: absolute;
+  z-index: 2;
+}
+
+.label-portfolio { left: 7.491%; top: 5.299%; }
+.masthead-el { left: 23.408%; top: 5.503%; }
+.discipline-el { left: 23.502%; top: 11.753%; }
+.see-more-el { right: 8.052%; top: 12.024%; text-align: right; }
+
+.nav-column { left: 7.491%; top: 16.644%; width: 15.637%; }
+
+.nav-list li {
+  padding: 0.7em 0 0.8em;
+  border-bottom: 1px solid var(--c-hairline);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.nav-list li:last-child { border-bottom: none; }
+.nav-list li a { display: contents; color: inherit; text-decoration: none; }
+
+.campaign-block { left: 23.315%; top: 16.168%; }
+.campaign-block__img { width: 19.195cqw; aspect-ratio: 205 / 273; object-fit: cover; display: block; }
+.campaign-block__caption { margin-top: 0.7em; }
+.campaign-block__caption .caption-title { margin-bottom: 0.35em; }
+
+.heading-selected { left: 43.446%; top: 15.353%; }
+
+.beauty-wrap { left: 43.446%; top: 23.098%; width: 24.251%; }
+.beauty-wrap__img { width: 100%; aspect-ratio: 259 / 314; object-fit: cover; display: block; }
+
+.red-card {
+  left: 53.839%;
+  top: 36.821%;
+  width: 13.858%;
+  aspect-ratio: 148 / 112;
+  z-index: 3;
+  padding: 1.03cqw 1.217cqw;
+  box-sizing: border-box;
+}
+
+.right-block--product { left: 73.97%; top: 16.168%; width: 18.352%; }
+.right-block--product .right-block__img { width: 100%; aspect-ratio: 196 / 189; object-fit: cover; display: block; }
+
+.right-block--editorial { left: 74.064%; top: 31.793%; width: 18.258%; }
+.right-block--editorial .right-block__img { width: 100%; aspect-ratio: 195 / 152; object-fit: cover; display: block; }
+
+.right-block__caption { margin-top: 0.6em; }
+.right-block__caption .caption-title { margin-bottom: 0.3em; }
+
+.statement-el { left: 7.491%; top: 57.065%; width: 42.135%; max-width: none; margin: 0; }
+
+.img-portrait { left: 8.895%; top: 70.448%; width: 27.622%; }
+.img-portrait img { width: 100%; aspect-ratio: 295 / 238; object-fit: cover; display: block; }
+
+.img-workspace { left: 37.36%; top: 70.448%; width: 18.352%; }
+.img-workspace img { width: 100%; aspect-ratio: 196 / 177; object-fit: cover; display: block; }
+
+.body-copy-el { left: 7.491%; top: 87.568%; width: 31.367%; }
+
+.img-chair { left: 61.798%; top: 59.511%; width: 29.401%; }
+.img-chair img { width: 100%; aspect-ratio: 314 / 377; object-fit: cover; display: block; }
+
+.signature-block { right: 7.772%; top: 86.277%; width: 33.708%; }
+.signature-block .signature-designer { margin-top: -0.15em; }
+
+/* ---- container-query type scale: font-size as % of the stage's
+   own width (1068px in the reference) ---- */
+
+.binder-stage .t-label-tiny { font-size: 0.936cqw; }
+.binder-stage .masthead { font-size: 8.333cqw; }
+.binder-stage .discipline-line { font-size: 0.983cqw; }
+.binder-stage .see-more { font-size: 1.03cqw; }
+.binder-stage .nav-item__label { font-size: 1.592cqw; }
+.binder-stage .nav-item__num { font-size: 0.843cqw; }
+.binder-stage .heading-condensed { font-size: 5.15cqw; line-height: 0.764; }
+.binder-stage .caption-title { font-size: 0.89cqw; }
+.binder-stage .caption-meta { font-size: 0.843cqw; }
+.binder-stage .red-card__label { font-size: 0.796cqw; }
+.binder-stage .red-card__body { font-size: 1.17cqw; line-height: 1.32; }
+.binder-stage .statement { font-size: 4.307cqw; line-height: 0.804; }
+.binder-stage .body-copy { font-size: 1.217cqw; line-height: 1.846; }
+.binder-stage .body-copy .dropcap { font-size: 4.12cqw; line-height: 0.864; }
+.binder-stage .specialist-label { font-size: 0.983cqw; }
+.binder-stage .signature-visual { font-size: 3.184cqw; }
+.binder-stage .signature-designer { font-size: 8.427cqw; }
+
+/* ============ desktop / mobile toggle ============ */
+
+@media (min-width: 860px) {
+  .binder-hero { display: block; }
+  .mobile-hero { display: none; }
+}

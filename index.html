@@ -13,8 +13,124 @@
 <link rel="stylesheet" href="css/typography.css">
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/binder-hero.css">
 </head>
 <body class="site">
+
+<!-- ============================================================
+     DESKTOP HERO: the binder itself, full-bleed and fluid. Every
+     element below keeps its exact original position (a percentage of
+     the same 1068x1472 coordinate space as the reference photo), and
+     the stage keeps that exact aspect ratio always, so the whole
+     composition scales as one undistorted unit. Hidden below 860px;
+     see .mobile-hero.
+     ============================================================ -->
+<div class="binder-hero">
+  <div class="binder-frame">
+    <div class="binder-stage">
+
+      <div class="paper paper--upper"></div>
+      <div class="paper paper--lower"></div>
+
+      <p class="bh-el label-portfolio t-label-tiny">PORTFOLIO<br>SINCE 2024</p>
+
+      <h1 class="bh-el masthead-el masthead">RONI<em>/Grifel</em></h1>
+
+      <p class="bh-el discipline-el discipline-line">AI&nbsp;&nbsp;/&nbsp;&nbsp;CREATIVE DIRECTION&nbsp;&nbsp;/&nbsp;&nbsp;VISUAL CONTENT&nbsp;&nbsp;/&nbsp;&nbsp;FASHION</p>
+
+      <a class="bh-el see-more-el see-more" href="work.html">SEE MORE <span aria-hidden="true">&#8599;</span></a>
+
+      <nav class="bh-el nav-column">
+        <ul class="nav-list">
+          <li><a href="campaigns.html"><span class="nav-item__label">AI Campaigns</span><span class="nav-item__num">01 — 06</span></a></li>
+          <li><a href="fashion.html"><span class="nav-item__label">Editorial</span><span class="nav-item__num">07 — 12</span></a></li>
+          <li><a href="concepts.html"><span class="nav-item__label">Digital Content</span><span class="nav-item__num">13 — 18</span></a></li>
+          <li><a href="campaigns.html"><span class="nav-item__label">Social Media</span><span class="nav-item__num">19 — 24</span></a></li>
+          <li><a href="products.html"><span class="nav-item__label">Retouching</span><span class="nav-item__num">25 — 28</span></a></li>
+          <li><a href="concepts.html"><span class="nav-item__label">Concepts</span><span class="nav-item__num">29 — 32</span></a></li>
+          <li><a href="about.html"><span class="nav-item__label">About</span><span class="nav-item__num">33 — 34</span></a></li>
+          <li><a href="contact.html"><span class="nav-item__label">Contact</span><span class="nav-item__num">35</span></a></li>
+        </ul>
+      </nav>
+
+      <a class="bh-el campaign-block block-link" href="campaigns.html">
+        <figure>
+          <img class="campaign-block__img" src="assets/images/hero-campaign.webp" srcset="assets/images/hero-campaign@1x.webp 543w, assets/images/hero-campaign.webp 1086w" sizes="10vw" alt="AI Campaign — Spring Summer 2024">
+          <figcaption class="campaign-block__caption">
+            <p class="caption-title">AI CAMPAIGN&nbsp;&nbsp;/&nbsp;&nbsp;SPRING SUMMER 2024</p>
+            <p class="caption-meta"><span>Brand: Diesel / Campaign</span><span>AI Visual</span></p>
+          </figcaption>
+        </figure>
+      </a>
+
+      <h2 class="bh-el heading-selected heading-condensed">SELECTED<br>WORK</h2>
+
+      <a class="bh-el beauty-wrap block-link" href="concepts.html">
+        <img class="beauty-wrap__img" src="assets/images/main-beauty.webp" srcset="assets/images/main-beauty@1x.webp 561w, assets/images/main-beauty.webp 1122w" sizes="13vw" alt="Digital visual study">
+      </a>
+
+      <div class="bh-el red-card">
+        <span class="red-card__label">DIGITAL&nbsp;&nbsp;/&nbsp;&nbsp;VISUAL STUDY</span>
+        <p class="red-card__body">Exploring AI as a new creative medium for fashion storytelling.</p>
+      </div>
+
+      <a class="bh-el right-block--product block-link" href="products.html">
+        <figure>
+          <img class="right-block__img" src="assets/images/product-visualization.webp" srcset="assets/images/product-visualization@1x.webp 512w, assets/images/product-visualization.webp 1024w" sizes="10vw" alt="Product visualization">
+          <figcaption class="right-block__caption">
+            <p class="caption-title">PRODUCT VISUALIZATION</p>
+            <p class="caption-meta"><span>AI&nbsp;&nbsp;/&nbsp;&nbsp;Concept</span></p>
+          </figcaption>
+        </figure>
+      </a>
+
+      <a class="bh-el right-block--editorial block-link" href="fashion.html">
+        <figure>
+          <img class="right-block__img" src="assets/images/editorial-portrait.webp" srcset="assets/images/editorial-portrait@1x.webp 468w, assets/images/editorial-portrait.webp 936w" sizes="10vw" alt="Editorial content">
+          <figcaption class="right-block__caption">
+            <p class="caption-title">EDITORIAL CONTENT</p>
+            <p class="caption-meta"><span>AI&nbsp;&nbsp;/&nbsp;&nbsp;Art Direction</span></p>
+          </figcaption>
+        </figure>
+      </a>
+
+      <div class="binder-rings" aria-hidden="true">
+        <img src="assets/binder/ring-band.webp" alt="">
+      </div>
+
+      <p class="bh-el statement-el statement">I CREATE<br>FASHION FOCUSED<br>VISUAL WORLDS<br><em>THROUGH AI, CREATIVE<br>DIRECTION AND STORYTELLING.</em></p>
+
+      <a class="bh-el img-portrait block-link" href="campaigns.html">
+        <img src="assets/images/lower-portrait.webp" srcset="assets/images/lower-portrait@1x.webp 468w, assets/images/lower-portrait.webp 937w" sizes="15vw" alt="Vision">
+      </a>
+
+      <a class="bh-el img-workspace block-link" href="concepts.html">
+        <img src="assets/images/workspace.webp" srcset="assets/images/workspace@1x.webp 416w, assets/images/workspace.webp 832w" sizes="10vw" alt="Workspace">
+      </a>
+
+      <p class="bh-el body-copy-el body-copy"><span class="dropcap">I</span>combine AI with creative direction, art direction and visual storytelling to craft premium visual content for fashion brands. From AI image generation and campaign concepts to social media and product visualization — I focus on creating content that feels premium, intentional and emotionally engaging.</p>
+
+      <a class="bh-el img-chair block-link" href="concepts.html">
+        <img src="assets/images/chair.webp" srcset="assets/images/chair@1x.webp 750w, assets/images/chair.webp 1500w" sizes="16vw" alt="Creative workstation">
+      </a>
+
+      <a class="bh-el signature-block block-link" href="about.html">
+        <p class="specialist-label">CREATIVE AI SPECIALIST</p>
+        <p class="signature-visual">Visual Content</p>
+        <p class="signature-designer">Designer</p>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     MOBILE / NARROW FALLBACK: the binder's composition doesn't fit
+     a portrait phone screen, so it flows naturally here instead —
+     same content, images, colors and type, single-column. Hidden
+     at 860px and up; see .binder-hero.
+     ============================================================ -->
+<div class="mobile-hero">
 
 <header class="site-header">
   <div class="wrap site-header__inner">
@@ -57,7 +173,7 @@
 
       <a class="hero__campaign block-link" href="campaigns.html">
         <figure>
-          <img src="assets/images/hero-campaign.jpg" alt="AI Campaign — Spring Summer 2024">
+          <img src="assets/images/hero-campaign.webp" srcset="assets/images/hero-campaign@1x.webp 543w, assets/images/hero-campaign.webp 1086w" sizes="(max-width: 560px) 100vw, 50vw" alt="AI Campaign — Spring Summer 2024">
           <figcaption>
             <p class="caption-title">AI CAMPAIGN&nbsp;&nbsp;/&nbsp;&nbsp;SPRING SUMMER 2024</p>
             <p class="caption-meta"><span>Brand: Diesel / Campaign</span><span>AI Visual</span></p>
@@ -74,7 +190,7 @@
 
     <div class="selected__grid">
       <a class="selected__beauty block-link" href="concepts.html">
-        <img src="assets/images/main-beauty.jpg" alt="Digital visual study">
+        <img src="assets/images/main-beauty.webp" srcset="assets/images/main-beauty@1x.webp 561w, assets/images/main-beauty.webp 1122w" sizes="(max-width: 560px) 100vw, 50vw" alt="Digital visual study">
       </a>
 
       <div class="red-card">
@@ -84,7 +200,7 @@
 
       <a class="selected__thumb block-link" href="products.html">
         <figure>
-          <img src="assets/images/product-visualization.jpg" alt="Product visualization">
+          <img src="assets/images/product-visualization.webp" srcset="assets/images/product-visualization@1x.webp 512w, assets/images/product-visualization.webp 1024w" sizes="(max-width: 560px) 100vw, 25vw" alt="Product visualization">
           <figcaption>
             <p class="caption-title">PRODUCT VISUALIZATION</p>
             <p class="caption-meta"><span>AI&nbsp;&nbsp;/&nbsp;&nbsp;Concept</span></p>
@@ -94,7 +210,7 @@
 
       <a class="selected__thumb block-link" href="fashion.html">
         <figure>
-          <img src="assets/images/editorial-portrait.jpg" alt="Editorial content">
+          <img src="assets/images/editorial-portrait.webp" srcset="assets/images/editorial-portrait@1x.webp 468w, assets/images/editorial-portrait.webp 936w" sizes="(max-width: 560px) 100vw, 25vw" alt="Editorial content">
           <figcaption>
             <p class="caption-title">EDITORIAL CONTENT</p>
             <p class="caption-meta"><span>AI&nbsp;&nbsp;/&nbsp;&nbsp;Art Direction</span></p>
@@ -111,17 +227,17 @@
 
     <div class="statement-grid">
       <a class="block-link" href="campaigns.html">
-        <img src="assets/images/lower-portrait.jpg" alt="Vision">
+        <img src="assets/images/lower-portrait.webp" srcset="assets/images/lower-portrait@1x.webp 468w, assets/images/lower-portrait.webp 937w" sizes="(max-width: 560px) 100vw, 25vw" alt="Vision">
       </a>
 
       <a class="block-link" href="concepts.html">
-        <img src="assets/images/workspace.jpg" alt="Workspace">
+        <img src="assets/images/workspace.webp" srcset="assets/images/workspace@1x.webp 416w, assets/images/workspace.webp 832w" sizes="(max-width: 560px) 100vw, 25vw" alt="Workspace">
       </a>
 
       <p class="body-copy"><span class="dropcap">I</span>combine AI with creative direction, art direction and visual storytelling to craft premium visual content for fashion brands. From AI image generation and campaign concepts to social media and product visualization — I focus on creating content that feels premium, intentional and emotionally engaging.</p>
 
       <a class="block-link" href="concepts.html">
-        <img src="assets/images/chair.jpg" alt="Creative workstation">
+        <img src="assets/images/chair.webp" srcset="assets/images/chair@1x.webp 750w, assets/images/chair.webp 1500w" sizes="(max-width: 560px) 100vw, 25vw" alt="Creative workstation">
       </a>
 
       <a class="signature-block block-link" href="about.html">
@@ -147,6 +263,8 @@
     </nav>
   </div>
 </footer>
+
+</div>
 
 </body>
 </html>
