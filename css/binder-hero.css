@@ -1,28 +1,28 @@
 /* ============================================================
-   Binder hero — the approved binder composition (reference photo),
-   rebuilt fluid instead of a fixed-pixel canvas.
+   Binder hero — MOBILE layout — the original portrait binder
+   composition (reference photo), rebuilt fluid instead of a
+   fixed-pixel canvas.
 
    .binder-stage keeps the reference photo's exact 1068:1472 aspect
    ratio always, so every element's position/size below (expressed as
    a percentage of that single 1068x1472 coordinate space — literally
    the same numbers as the original design, just in % instead of px)
-   scales as one undistorted unit. That's what makes this different
-   from a naive flex-divided layout: because the stage's shape never
-   changes, text and images can never overlap or overflow each other
-   at any size, they just get uniformly larger or smaller together.
+   scales as one undistorted unit: text and images can never overlap
+   or overflow each other at any size, they just get uniformly larger
+   or smaller together.
 
-   The stage is fit ("contain") inside the full 100vw x 100vh frame:
-   on most desktop screens (wider than the design's own 0.725 aspect)
-   that means it's height-bound, so a strip of the frame's background
-   remains visible on either side. There is no way to also fill 100%
-   of the width on a landscape screen without either cropping part of
-   the design off-screen or reshaping the composition itself — this
-   preserves the exact original, uncropped and undistorted, and
-   maximizes its size within that constraint.
+   A phone screen is narrower (relative to its height) than the
+   design's own 0.725 aspect ratio, so fitting ("contain") the stage
+   inside the full 100vw x 100dvh frame is width-bound here — it fills
+   the entire width edge to edge with no side borders, and only
+   letterboxes top/bottom (there's no way to also fill 100% height
+   without cropping or reshaping the composition, which would defeat
+   the point of it being the same original portrait binder).
 
-   Below 860px there isn't room for this at readable scale, so
-   .mobile-hero (a normal responsive flow, same content/images) takes
-   over instead — see the toggle at the bottom.
+   This is the MOBILE experience (<860px) — see css/binder-desktop.css
+   for the separate landscape two-page-spread experience used at
+   860px and up. The two are intentionally not the same layout scaled
+   differently; the toggle is at the bottom of this file.
    ============================================================ */
 
 .binder-hero {
@@ -37,7 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(6px, 1.2vh, 20px) clamp(6px, 1.2vw, 20px);
+  padding: clamp(4px, 1.5vh, 18px) 0;
   box-sizing: border-box;
 }
 
@@ -82,20 +82,23 @@
 }
 
 /* absolutely-positioned content, percentage coordinates relative to
-   the single 1068x1472 .binder-stage */
-.bh-el {
+   the single 1068x1472 .binder-stage. Everything here is scoped under
+   .binder-stage: several of these class names (.red-card,
+   .signature-block, …) are shared with the desktop spread's normal
+   grid-flow markup, and must not leak absolute positioning there. */
+.binder-stage .bh-el {
   position: absolute;
   z-index: 2;
 }
 
-.label-portfolio { left: 7.491%; top: 5.299%; }
-.masthead-el { left: 23.408%; top: 5.503%; }
-.discipline-el { left: 23.502%; top: 11.753%; }
-.see-more-el { right: 8.052%; top: 12.024%; text-align: right; }
+.binder-stage .label-portfolio { left: 7.491%; top: 5.299%; }
+.binder-stage .masthead-el { left: 23.408%; top: 5.503%; }
+.binder-stage .discipline-el { left: 23.502%; top: 11.753%; }
+.binder-stage .see-more-el { right: 8.052%; top: 12.024%; text-align: right; }
 
-.nav-column { left: 7.491%; top: 16.644%; width: 15.637%; }
+.binder-stage .nav-column { left: 7.491%; top: 16.644%; width: 15.637%; }
 
-.nav-list li {
+.binder-stage .nav-list li {
   padding: 0.7em 0 0.8em;
   border-bottom: 1px solid var(--c-hairline);
   display: flex;
@@ -105,20 +108,20 @@
   white-space: nowrap;
 }
 
-.nav-list li:last-child { border-bottom: none; }
-.nav-list li a { display: contents; color: inherit; text-decoration: none; }
+.binder-stage .nav-list li:last-child { border-bottom: none; }
+.binder-stage .nav-list li a { display: contents; color: inherit; text-decoration: none; }
 
-.campaign-block { left: 23.315%; top: 16.168%; }
-.campaign-block__img { width: 19.195cqw; aspect-ratio: 205 / 273; object-fit: cover; display: block; }
-.campaign-block__caption { margin-top: 0.7em; }
-.campaign-block__caption .caption-title { margin-bottom: 0.35em; }
+.binder-stage .campaign-block { left: 23.315%; top: 16.168%; }
+.binder-stage .campaign-block__img { width: 19.195cqw; aspect-ratio: 205 / 273; object-fit: cover; display: block; }
+.binder-stage .campaign-block__caption { margin-top: 0.7em; }
+.binder-stage .campaign-block__caption .caption-title { margin-bottom: 0.35em; }
 
-.heading-selected { left: 43.446%; top: 15.353%; }
+.binder-stage .heading-selected { left: 43.446%; top: 15.353%; }
 
-.beauty-wrap { left: 43.446%; top: 23.098%; width: 24.251%; }
-.beauty-wrap__img { width: 100%; aspect-ratio: 259 / 314; object-fit: cover; display: block; }
+.binder-stage .beauty-wrap { left: 43.446%; top: 23.098%; width: 24.251%; }
+.binder-stage .beauty-wrap__img { width: 100%; aspect-ratio: 259 / 314; object-fit: cover; display: block; }
 
-.red-card {
+.binder-stage .red-card {
   left: 53.839%;
   top: 36.821%;
   width: 13.858%;
@@ -128,30 +131,30 @@
   box-sizing: border-box;
 }
 
-.right-block--product { left: 73.97%; top: 16.168%; width: 18.352%; }
-.right-block--product .right-block__img { width: 100%; aspect-ratio: 196 / 189; object-fit: cover; display: block; }
+.binder-stage .right-block--product { left: 73.97%; top: 16.168%; width: 18.352%; }
+.binder-stage .right-block--product .right-block__img { width: 100%; aspect-ratio: 196 / 189; object-fit: cover; display: block; }
 
-.right-block--editorial { left: 74.064%; top: 31.793%; width: 18.258%; }
-.right-block--editorial .right-block__img { width: 100%; aspect-ratio: 195 / 152; object-fit: cover; display: block; }
+.binder-stage .right-block--editorial { left: 74.064%; top: 31.793%; width: 18.258%; }
+.binder-stage .right-block--editorial .right-block__img { width: 100%; aspect-ratio: 195 / 152; object-fit: cover; display: block; }
 
-.right-block__caption { margin-top: 0.6em; }
-.right-block__caption .caption-title { margin-bottom: 0.3em; }
+.binder-stage .right-block__caption { margin-top: 0.6em; }
+.binder-stage .right-block__caption .caption-title { margin-bottom: 0.3em; }
 
-.statement-el { left: 7.491%; top: 57.065%; width: 42.135%; max-width: none; margin: 0; }
+.binder-stage .statement-el { left: 7.491%; top: 57.065%; width: 42.135%; max-width: none; margin: 0; }
 
-.img-portrait { left: 8.895%; top: 70.448%; width: 27.622%; }
-.img-portrait img { width: 100%; aspect-ratio: 295 / 238; object-fit: cover; display: block; }
+.binder-stage .img-portrait { left: 8.895%; top: 70.448%; width: 27.622%; }
+.binder-stage .img-portrait img { width: 100%; aspect-ratio: 295 / 238; object-fit: cover; display: block; }
 
-.img-workspace { left: 37.36%; top: 70.448%; width: 18.352%; }
-.img-workspace img { width: 100%; aspect-ratio: 196 / 177; object-fit: cover; display: block; }
+.binder-stage .img-workspace { left: 37.36%; top: 70.448%; width: 18.352%; }
+.binder-stage .img-workspace img { width: 100%; aspect-ratio: 196 / 177; object-fit: cover; display: block; }
 
-.body-copy-el { left: 7.491%; top: 87.568%; width: 31.367%; }
+.binder-stage .body-copy-el { left: 7.491%; top: 87.568%; width: 31.367%; }
 
-.img-chair { left: 61.798%; top: 59.511%; width: 29.401%; }
-.img-chair img { width: 100%; aspect-ratio: 314 / 377; object-fit: cover; display: block; }
+.binder-stage .img-chair { left: 61.798%; top: 59.511%; width: 29.401%; }
+.binder-stage .img-chair img { width: 100%; aspect-ratio: 314 / 377; object-fit: cover; display: block; }
 
-.signature-block { right: 7.772%; top: 86.277%; width: 33.708%; }
-.signature-block .signature-designer { margin-top: -0.15em; }
+.binder-stage .signature-block { right: 7.772%; top: 86.277%; width: 33.708%; }
+.binder-stage .signature-block .signature-designer { margin-top: -0.15em; }
 
 /* ---- container-query type scale: font-size as % of the stage's
    own width (1068px in the reference) ---- */
@@ -176,7 +179,6 @@
 
 /* ============ desktop / mobile toggle ============ */
 
-@media (min-width: 860px) {
+@media (max-width: 859px) {
   .binder-hero { display: block; }
-  .mobile-hero { display: none; }
 }

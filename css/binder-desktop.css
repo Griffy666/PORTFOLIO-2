@@ -1,0 +1,167 @@
+/* ============================================================
+   Binder hero — DESKTOP layout (860px and up) — a dedicated open
+   LANDSCAPE binder: left page and right page side by side, ring
+   spine in the center, filling the full viewport edge to edge.
+
+   This is deliberately a different composition from the mobile
+   portrait binder (css/binder-hero.css), not the same layout scaled
+   down — a portrait single-column design and a landscape open-book
+   spread are different shapes, so each gets its own optimized build.
+   Content within each page uses normal responsive flow (flex/grid),
+   not fixed coordinates, so it reflows cleanly at any viewport size
+   or height instead of relying on one fixed aspect ratio.
+   ============================================================ */
+
+.binder-desktop {
+  display: none;
+}
+
+@media (min-width: 860px) {
+  .binder-hero { display: none; }
+
+  .binder-desktop {
+    display: flex;
+    align-items: stretch;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background: var(--c-paper);
+  }
+}
+
+.spread-page {
+  flex: 1 1 0;
+  min-width: 0;
+  background: var(--c-paper);
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.spread-page__inner {
+  padding: clamp(14px, 2.4vh, 32px) clamp(24px, 3.6vw, 56px);
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Shared typography.css sizes assume a full-width viewport context;
+   rescale the large display type to this page column's own narrower
+   width instead, so it fits a single viewport height without the
+   page needing to scroll. */
+.binder-desktop .masthead { font-size: clamp(30px, 3.6vw, 52px); }
+.binder-desktop .heading-condensed { font-size: clamp(24px, 2.6vw, 34px); line-height: 0.85; }
+.binder-desktop .statement { font-size: clamp(20px, 2.3vw, 30px); }
+.binder-desktop .signature-designer { font-size: clamp(28px, 3.6vw, 48px); }
+
+.spread-page--right .spread-page__inner {
+  margin-left: auto;
+}
+
+.spread-spine {
+  flex: 0 0 clamp(56px, 5.5vw, 108px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-paper);
+}
+
+.spread-spine img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---- left page: identity + nav + featured campaign + selected work ---- */
+
+.spread-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 14px;
+}
+
+.spread-masthead {
+  margin: 4px 0 8px;
+}
+
+.spread-nav-and-campaign {
+  display: grid;
+  grid-template-columns: minmax(120px, 160px) 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.binder-desktop .hero__campaign img {
+  aspect-ratio: 4 / 2.5;
+}
+
+.binder-desktop .hero__campaign figcaption {
+  margin-top: 6px;
+}
+
+.spread-selected {
+  margin-top: 14px;
+}
+
+.spread-selected .heading-condensed {
+  margin-bottom: 10px;
+}
+
+.binder-desktop .selected__beauty img {
+  aspect-ratio: 4 / 3.4;
+}
+
+.binder-desktop .selected__grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.binder-desktop .home-nav__list li {
+  padding: 6px 0 7px;
+}
+
+.binder-desktop .nav-item__label {
+  font-size: 13px;
+}
+
+.binder-desktop .nav-item__num {
+  font-size: 8px;
+}
+
+/* ---- right page: statement + image grid + body copy + signature ---- */
+
+.binder-desktop .statement {
+  margin-bottom: 16px;
+}
+
+.binder-desktop .statement-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.binder-desktop .statement-grid img {
+  aspect-ratio: 4 / 3;
+}
+
+.binder-desktop .body-copy {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.binder-desktop .statement-grid .body-copy,
+.binder-desktop .signature-block {
+  grid-column: span 2;
+}
+
+.binder-desktop .signature-block {
+  margin-top: 4px;
+}
+
+@media (min-width: 1400px) {
+  .spread-page__inner {
+    max-width: 720px;
+  }
+}
