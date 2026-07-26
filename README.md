@@ -55,10 +55,9 @@ Then open `http://localhost:8000`.
 - **Homepage** (`index.html`) is a fixed 1068×1472px canvas — a pixel-measured reproduction of the original reference photo. It scales down proportionally on small viewports but never reflows. Its content (text, nav, images) is live HTML; only the acrylic/rail/ring hardware is a baked-in photographic overlay.
 - **Subpages** use a normal responsive flow (`css/site.css`) with the same color palette and type roles, so the whole site reads as one system.
 
-## Content still needed
+## Content placeholders
 
-- **`contact.html`** uses a placeholder email (`hello@roni-grifel.com`, marked with a `<!-- TODO -->` comment). Replace it with the real contact address once available.
-- Add real social links to the Contact page / footer if desired.
+- **`contact.html`** uses a placeholder email (`hello@roni-grifel.com`). Swap it for the real address whenever it's available — it's the only fabricated piece of content on the site.
 
 ## Swapping images
 
@@ -66,4 +65,4 @@ Every image sits in its own `<img>` tag at a fixed container size — replacing 
 
 ## Deploying
 
-This is a static site — drag-and-drop the whole folder into Netlify, Vercel (static), GitHub Pages, or any static host. No environment variables, no build command.
+This is a static site — no build step, no environment variables. It auto-deploys to **GitHub Pages** via `.github/workflows/deploy.yml` on every push to `main` (uses `actions/configure-pages`, which enables Pages on the repo automatically the first time the workflow runs). It can just as easily be dragged into Netlify or Vercel instead if preferred.
