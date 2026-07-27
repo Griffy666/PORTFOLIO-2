@@ -79,6 +79,7 @@
   width: 100%;
   height: auto;
   display: block;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.28));
 }
 
 /* absolutely-positioned content, percentage coordinates relative to
@@ -163,7 +164,7 @@
 .binder-stage .masthead { font-size: 8.333cqw; }
 .binder-stage .discipline-line { font-size: 0.983cqw; }
 .binder-stage .see-more { font-size: 1.03cqw; }
-.binder-stage .nav-item__label { font-size: 1.592cqw; }
+.binder-stage .nav-item__label { font-size: 1.1cqw; }
 .binder-stage .nav-item__num { font-size: 0.843cqw; }
 .binder-stage .heading-condensed { font-size: 5.15cqw; line-height: 0.764; }
 .binder-stage .caption-title { font-size: 0.89cqw; }
