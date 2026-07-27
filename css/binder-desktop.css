@@ -1,19 +1,30 @@
 /* ============================================================
    Binder hero — DESKTOP layout (860px and up) — a dedicated open
-   LANDSCAPE binder: left page and right page side by side, ring
-   spine in the center, filling the full viewport edge to edge.
+   LANDSCAPE binder: left page and right page meeting directly at the
+   center, filling the full viewport edge to edge.
+
+   The two pages sit flush against each other (no gap, no dedicated
+   third column) so there's nothing that reads as a separate object
+   between them. The ring hardware is a single image floating on top,
+   centered exactly on the seam and overlapping both pages equally —
+   the same "rings sit on top of the paper, bridging both sheets"
+   idea the mobile portrait binder already uses (css/binder-hero.css),
+   just turned 90°. That's what makes it read as rings physically
+   piercing one continuous spread instead of a spine-shaped object
+   wedged between two web columns.
 
    This is deliberately a different composition from the mobile
-   portrait binder (css/binder-hero.css), not the same layout scaled
-   down — a portrait single-column design and a landscape open-book
-   spread are different shapes, so each gets its own optimized build.
-   Content within each page uses normal responsive flow (flex/grid),
-   not fixed coordinates, so it reflows cleanly at any viewport size
-   or height instead of relying on one fixed aspect ratio.
+   portrait binder, not the same layout scaled down — a portrait
+   single-column design and a landscape open-book spread are different
+   shapes, so each gets its own optimized build. Content within each
+   page uses normal responsive flow (flex/grid), not fixed
+   coordinates, so it reflows cleanly at any viewport size or height
+   instead of relying on one fixed aspect ratio.
    ============================================================ */
 
 .binder-desktop {
   display: none;
+  position: relative;
 }
 
 @media (min-width: 860px) {
@@ -39,6 +50,30 @@
   flex-direction: column;
 }
 
+/* soft contact shadow where each page meets the rings, so the
+   mechanism reads as pressing into the paper rather than floating
+   on top of it */
+.spread-page--left::after,
+.spread-page--right::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.spread-page--left::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.12), transparent);
+}
+
+.spread-page--right::after {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.12), transparent);
+}
+
 .spread-page__inner {
   padding: clamp(14px, 2.4vh, 32px) clamp(24px, 3.6vw, 56px);
   width: 100%;
@@ -59,11 +94,17 @@
 }
 
 .spread-spine {
-  flex: 0 0 clamp(56px, 5.5vw, 108px);
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: clamp(84px, 7.4vw, 150px);
+  height: 100%;
+  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--c-paper);
+  pointer-events: none;
 }
 
 .spread-spine img {
@@ -71,7 +112,7 @@
   height: 100%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.22));
 }
 
 /* ---- left page: identity + nav + featured campaign + selected work ---- */
