@@ -26,9 +26,9 @@ These appear on the homepage binder (both the desktop landscape spread and the m
 | `workspace.webp` | Image next to the body copy | Roughly square |
 | `chair.webp` | Large image above the signature | Portrait (~5:6) |
 
-## Project page galleries (`assets/images/gallery/`)
+## Category page galleries (`assets/images/gallery/`)
 
-Each project page (Campaigns, Fashion, Products, Concepts) shows its images in the order below. All gallery images are portrait (Campaigns ~3:4, the other three ~4:5).
+Each category page (Campaigns, Fashion, Products, Concepts) shows its images in the order below. All gallery images are portrait (Campaigns ~3:4, the other three ~4:5). Each image also links to its own individual case-study page (`project-<slug>.html`), which reuses the same file for its hero, gallery, and final-output sections — replacing the file here updates it everywhere automatically.
 
 **Campaigns** (`campaigns.html`)
 | File | Caption on site |
