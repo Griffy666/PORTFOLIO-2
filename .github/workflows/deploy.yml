@@ -29,10 +29,19 @@ jobs:
         with:
           enablement: true
 
+      # Publish only what the site serves: the uncropped originals in
+      # assets/source/ and the reference photo stay in the repo but are
+      # not uploaded to the public site.
+      - name: Assemble public site
+        run: |
+          mkdir _site
+          cp -r *.html favicon.svg .nojekyll css js assets _site/
+          rm -rf _site/assets/source
+
       - name: Upload site as Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment

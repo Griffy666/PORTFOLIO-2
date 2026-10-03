@@ -1,5 +1,5 @@
 /* ============================================================
-   Binder hero — DESKTOP layout (860px and up) — a dedicated open
+   Binder hero — an open
    LANDSCAPE binder: left page and right page meeting directly at the
    center, filling the full viewport edge to edge.
 
@@ -13,23 +13,22 @@
    piercing one continuous spread instead of a spine-shaped object
    wedged between two web columns.
 
-   This is deliberately a different composition from the mobile
-   portrait binder, not the same layout scaled down — a portrait
-   single-column design and a landscape open-book spread are different
-   shapes, so each gets its own optimized build. Content within each
-   page uses normal responsive flow (flex/grid), not fixed
-   coordinates, so it reflows cleanly at any viewport size or height
-   instead of relying on one fixed aspect ratio.
+   Below 1024px the same two pages stack vertically and the rings turn
+   horizontal between them (see the bottom of this file), so phones get
+   readable, normally-scrolling content instead of a scaled-down
+   miniature. Content within each page uses normal responsive flow
+   (flex/grid), not fixed coordinates.
    ============================================================ */
 
 .binder-desktop {
-  display: none;
   position: relative;
 }
 
-@media (min-width: 860px) {
-  .binder-hero { display: none; }
+.spread-rings {
+  display: none;
+}
 
+@media (min-width: 1024px) {
   .binder-desktop {
     display: flex;
     align-items: stretch;
@@ -206,5 +205,102 @@
 @media (min-width: 1400px) {
   .spread-page__inner {
     max-width: 720px;
+  }
+}
+
+/* ============ phones / small tablets: pages stacked ============ */
+
+@media (max-width: 1023px) {
+  .binder-desktop {
+    display: flex;
+    flex-direction: column;
+    background: var(--c-paper);
+  }
+
+  .spread-page {
+    overflow: visible;
+  }
+
+  .spread-page--left::after,
+  .spread-page--right::after,
+  .spread-spine {
+    display: none;
+  }
+
+  .spread-page__inner,
+  .spread-page--right .spread-page__inner {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 28px 22px 48px;
+  }
+
+  .spread-rings {
+    display: block;
+    position: relative;
+    z-index: 5;
+    height: 0;
+  }
+
+  .spread-rings img {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.28));
+  }
+
+  .spread-page--right {
+    padding-top: 30px;
+  }
+
+  .binder-desktop .masthead { font-size: clamp(44px, 14vw, 72px); }
+  .binder-desktop .heading-condensed { font-size: 40px; }
+  .binder-desktop .statement { font-size: clamp(30px, 9vw, 44px); }
+  .binder-desktop .signature-designer { font-size: clamp(48px, 15vw, 72px); }
+  .binder-desktop .discipline-line { line-height: 1.7; }
+
+  .spread-nav-and-campaign {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    margin-top: 18px;
+  }
+
+  .binder-desktop .home-nav__list li {
+    padding: 12px 0 13px;
+  }
+
+  .binder-desktop .nav-item__label { font-size: 15px; }
+  .binder-desktop .nav-item__num { font-size: 10px; }
+
+  .binder-desktop .hero__campaign img { aspect-ratio: 4 / 5; }
+
+  .spread-selected { margin-top: 36px; }
+
+  .binder-desktop .red-card { min-height: 0; padding: 22px; }
+  .binder-desktop .red-card__label { font-size: 10px; }
+  .binder-desktop .red-card__body { font-size: 18px; }
+
+  .binder-desktop .body-copy {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .binder-desktop .caption-title { font-size: 11px; }
+  .binder-desktop .caption-meta { font-size: 11px; }
+
+  .binder-desktop .signature-block { margin-top: 20px; }
+}
+
+@media (max-width: 420px) {
+  .binder-desktop .selected__grid,
+  .binder-desktop .statement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .binder-desktop .statement-grid .body-copy,
+  .binder-desktop .signature-block {
+    grid-column: span 1;
   }
 }
